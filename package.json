@@ -1,0 +1,14 @@
+{
+  "name": "ice-json-generator",
+  "version": "0.0.1",
+  "description": "A json generator",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "author": "allenice <994298628@qq.com> (http://blog.allenice233.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "faker": "^3.0.0"
+  }
+}
