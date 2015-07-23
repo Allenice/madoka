@@ -1,5 +1,9 @@
+var fs = require('fs'),
+    path = require('path');
+
 var faker = require('./lib/faker'),
-        _ = require('lodash');
+    _ = require('lodash'),
+    mkdirp = require('mkdirp');
 
 // match {{  }}
 var interpolateReg = /{{([\s\S]+?)}}/g;
@@ -119,7 +123,12 @@ var parsers = {
 
 };
 
-// generate function
+/**
+ * generate
+ * @param template - json scheme
+ * @param [index] - array index
+ * @returns {*}
+ */
 function generate(template, index) {
 
   var data,
@@ -133,7 +142,34 @@ function generate(template, index) {
   return data;
 }
 
+/**
+ * save as json file
+ * @param template - json scheme
+ * @param path - path to save file
+ */
+function save(template, distpath) {
+  var data = generate(template);
+  var dir = path.dirname(distpath);
+
+  mkdirp(dir, function(err) {
+    if(err) {
+      console.log(err.message);
+      return;
+    }
+
+    fs.writeFile(distpath, JSON.stringify(data, null, 2), function(err) {
+      if(err) {
+        console.log(err.message);
+        return;
+      }
+    });
+
+  });
+
+}
+
 module.exports = {
   faker: faker,
-  generate: generate
+  generate: generate,
+  save: save
 };
