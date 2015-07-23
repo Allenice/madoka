@@ -8,6 +8,9 @@ var template = [
     index: '{{ index() }}',
     guid: '{{ guid() }}',
     isActive: '{{ bool() }}',
+    selfIntroduction: function(faker) {
+      return 'My name is ' + this.name + '. Generate before name is parsed';
+    },
     balance: '{{floating(1000, 4000, 2, "$0,0.00")}}',
     picture: '{{ faker.image.image() }}',
     age: '{{ integer(20, 40) }}',

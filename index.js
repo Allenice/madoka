@@ -51,11 +51,24 @@ var parsers = {
 
   // parse object, it will generate each property
   '_object': function(obj, index) {
+    var funcKey = [];
+
     for(var key in obj) {
       if(obj.hasOwnProperty(key)) {
+
+        // If this is a function, generate it later.
+        if(typeof obj[key] === 'function') {
+          funcKey.push(key);
+          continue;
+        }
         obj[key] = generate.call(obj, obj[key], index);
       }
     }
+
+    // parse function
+    funcKey.forEach(function(key) {
+      obj[key] = generate.call(obj, obj[key], index);
+    });
 
     return obj;
   },
