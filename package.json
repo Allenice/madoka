@@ -4,10 +4,13 @@
   "description": "A json generator",
   "main": "index.js",
   "scripts": {
-    "test": ""
+    "test": "mocha test"
   },
   "author": "allenice <994298628@qq.com> (http://blog.allenice233.com/)",
   "license": "MIT",
+  "devDependencies": {
+    "should": "^7.0.2"
+  },
   "dependencies": {
     "datef": "^2.0.0",
     "faker": "^3.0.0",
