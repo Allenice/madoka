@@ -16,7 +16,7 @@ var template = [
     age: '{{ integer(20, 40) }}',
     eyeColor: '{{ random("blue", "brown", "green") }}',
     name: '{{ firstName() }} {{ lastName() }}',
-    compay: '{{ company().toUpperCase() }}',
+    company: '{{ company().toUpperCase() }}',
     phone: '{{ phone() }}',
     address: '{{ state() }}, {{ city() }}, {{ street() }}, {{ faker.address.zipCode() }}',
     registered: '{{date(new Date(2014, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss Z")}}',
