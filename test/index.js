@@ -11,6 +11,7 @@ var template = [
     selfIntroduction: function(faker) {
       return this.name;
     },
+    email: '{{ email() }}',
     balance: '{{floating(1000, 4000, 2, "$0,0.00")}}',
     picture: '{{ faker.image.image() }}',
     age: '{{ integer(20, 40) }}',

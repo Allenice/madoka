@@ -8,6 +8,7 @@ var template = {
 };
 
 var result = generator.generate(template);
+
 describe('integer', function() {
 
   describe('integer()', function() {
