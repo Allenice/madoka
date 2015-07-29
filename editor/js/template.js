@@ -1,0 +1,7 @@
+/*
+* default template
+* */
+
+var template = '[\n  \'{{repeat(5, 7)}}\',\n  {\n    _id: \'{{objectId()}}\',\n    index: \'{{index()}}\',\n    guid: \'{{guid()}}\',\n    isActive: \'{{bool()}}\',\n    balance: \'{{floating(1000, 4000, 2, \"$0,0.00\")}}\',\n    picture: \'http:\/\/placehold.it\/32x32\',\n    age: \'{{integer(20, 40)}}\',\n    eyeColor: \'{{random(\"blue\", \"brown\", \"green\")}}\',\n    name: \'{{firstName()}} {{surname()}}\',\n    gender: \'{{gender()}}\',\n    company: \'{{company().toUpperCase()}}\',\n    email: \'{{email()}}\',\n    phone: \'+1 {{phone()}}\',\n    address: \'{{integer(100, 999)}} {{street()}}, {{city()}}, {{state()}}, {{integer(100, 10000)}}\',\n    about: \'{{lorem(1, \"paragraphs\")}}\',\n    registered: \'{{date(new Date(2014, 0, 1), new Date(), \"YYYY-MM-ddThh:mm:ss Z\")}}\',\n    latitude: \'{{floating(-90.000001, 90)}}\',\n    longitude: \'{{floating(-180.000001, 180)}}\',\n    tags: [\n      \'{{repeat(7)}}\',\n      \'{{lorem(1, \"words\")}}\'\n    ],\n    friends: [\n      \'{{repeat(3)}}\',\n      {\n        id: \'{{index()}}\',\n        name: \'{{firstName()}} {{surname()}}\'\n      }\n    ],\n    greeting: function (tags) {\n      return \'Hello, \' + this.name + \'! You have \' + tags.integer(1, 10) + \' unread messages.\';\n    },\n    favoriteFruit: function (tags) {\n      var fruits = [\'apple\', \'banana\', \'strawberry\'];\n      return fruits[tags.integer(0, fruits.length - 1)];\n    }\n  }\n]';
+
+module.exports = template;

@@ -1,0 +1,119 @@
+@import "codemirror";
+@import "font-awesome/scss/font-awesome";
+@import "compass/reset";
+@import "compass/css3";
+
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font: 13px/1.4 "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+
+header {
+  height: 50px;
+  background-color: #008c9e;
+  position: relative;
+  z-index: 2;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  nav {
+    height: 50px;
+    line-height: 50px;
+    float: right;
+    font-size: 14px;
+
+    a {
+      margin-right: 30px;
+    }
+
+    .fa {
+      font-size: 18px;
+      margin-right: 10px;
+    }
+  }
+}
+
+.action {
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  margin-left: -50px;
+}
+
+.generate {
+  display: inline-block;
+  width: 100px;
+  height: 35px;
+  line-height: 35px;
+  background-color: #005f6b;
+  border-radius: 5px;
+  border: 1px solid #02535d;
+  text-align: center;
+  font-size: 18px;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.reset {
+  margin-left: 10px;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  padding: 49px 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  background-color: #555;
+  @include box-sizing(border-box);
+}
+
+.left-editor,
+.right-editor {
+  width: 50%;
+  height: 100%;
+  float: left;
+  @include box-sizing(border-box);
+}
+
+.left-editor {
+  padding-right: 5px;
+}
+
+.right-editor {
+  padding-left: 5px;
+}
+
+.editor {
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #008c9e;
+  text-align: center;
+  z-index: 2;
+
+  a {
+    color: #fff;
+  }
+}

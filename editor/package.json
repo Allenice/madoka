@@ -1,0 +1,27 @@
+{
+  "name": "ijg-page",
+  "version": "1.0.0",
+  "description": "ice-json-generator github page",
+  "main": "js/app.js",
+  "scripts": {
+    "start": "watchify -o js/bundle.js -v -d js/app.js",
+    "build": "browserify . -t [envify --NODE_ENV production] | uglifyjs -cm > js/bundle.min.js"
+  },
+  "author": "allenice <994298628@qq.com> (http://blog.allenice233.com/)",
+  "license": "MIT",
+  "devDependencies": {
+    "browserify": "^10.2.3",
+    "envify": "^3.4.0",
+    "uglify-js": "^2.4.23",
+    "watchify": "^3.2.1"
+  },
+  "dependencies": {
+    "codemirror": "^5.5.0",
+    "lodash": "^3.10.0"
+  },
+  "browserify": {
+    "transform": [
+      "envify"
+    ]
+  }
+}
