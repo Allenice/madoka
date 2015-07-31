@@ -72,6 +72,11 @@ var parsers = {
       str = str === 'true';
     }
 
+    // if result is digit, parse it to float
+    if(/^[-+]?\d*\.?\d+$/.test(str)) {
+      str = parseFloat(str);
+    }
+
     return str;
   },
 
