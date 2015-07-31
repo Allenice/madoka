@@ -13,26 +13,32 @@ var result = generator.generate(template);
 describe('floating', function() {
 
   describe('floating()', function() {
-    it('should be a float string. >= 0 and <= 1', function() {
-      var num = parseFloat(result.floating);
-      result.floating.should.match(/^[-+]?\d*\.?\d+$/, 'float string');
+    it('should be a float. >= 0 and <= 1', function() {
+      var num = result.floating,
+          numStr = num + '';
+
+      numStr.should.match(/^[-+]?\d*\.?\d+$/, 'float string');
       should.ok(num >= 0 && num <= 1, '>= 0 and <= 1');
     });
   });
 
   describe('floating(-100.324, 100.555)', function() {
-    it('should be a float string. >= -100.324 and <= 100.555', function() {
-      var num = parseFloat(result.floating2);
-      result.floating2.should.match(/^[-+]?\d*\.?\d+$/, 'float string');
+    it('should be a float. >= -100.324 and <= 100.555', function() {
+      var num = result.floating2,
+          numStr = num + '';
+
+      numStr.should.match(/^[-+]?\d*\.?\d+$/, 'float string');
       should.ok(num >= -100.324 && num <= 100.555, '>= -100.324 and <= 100.555');
     });
   });
 
   describe('floating(-100.324, 100.555, 2)', function() {
-    it('should be a float string. >= -100.324 and <= 100.555 and with two decimal places', function() {
-      var num = parseFloat(result.floating3);
-      result.floating3.should.match(/^[-+]?\d*\.?\d+$/, 'float string');
-      result.floating3.should.match(/\d+.\d{2}/, 'two decimal places')
+    it('should be a float. >= -100.324 and <= 100.555 and with two decimal places', function() {
+      var num = result.floating3,
+          numStr = num + '';
+
+      numStr.should.match(/^[-+]?\d*\.?\d+$/, 'float string');
+      numStr.should.match(/\d+.\d{2}/, 'two decimal places')
       should.ok(num >= -100.324 && num <= 100.555, '>= -100.324 and <= 100.555');
     });
   });
