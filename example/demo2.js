@@ -17,7 +17,11 @@ var template = {
   email: '{{ email() }}',
   phone: '{{ phone() }}',
   country: '{{ country() }}',
-  zipCode: '{{ faker.address.zipCode() }}'
+  zipCode: '{{ faker.address.zipCode() }}',
+  picture: '{{ image.imageUrl(320, 240) }}',
+  picturePl: '{{ imagePl(320, 240, {format: "jpg", text: "hello"}) }}',
+  picturePl2: '{{ imagePl() }}',
+  picturePl3: '{{ imagePl({bgColor: "F00"}) }}'
 };
 
 console.time('build');

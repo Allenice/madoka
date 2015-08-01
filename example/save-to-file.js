@@ -14,7 +14,7 @@ var template = [
       return 'My name is ' + this.name + '. Generate before name is parsed';
     },
     balance: '{{floating(1000, 4000, 2, "$0,0.00")}}',
-    picture: '{{ faker.image.image() }}',
+    picture: '{{ image.image() }}',
     age: '{{ integer(20, 40) }}',
     eyeColor: '{{ random("blue", "brown", "green") }}',
     name: '{{ firstName() }} {{ lastName() }}',
