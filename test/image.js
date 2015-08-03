@@ -14,18 +14,6 @@ var template = {
 
 var result = generator.generate(template);
 
-/*
-*
- { image: 'http://lorempixel.com/640/480/nightlife',
- imageUrl: 'http://lorempixel.com/320/240/cats',
- imageAnimal: 'http://lorempixel.com/640/480/animals',
- imagePl: 'http://dummyimage.com/640x480/FAD089/333.png&text=',
- imagePlWH: 'http://dummyimage.com/320x240/FAD089/333.png&text=',
- imagePlWO: 'http://dummyimage.com/320x480/FAD089/FFF.jpg&text=',
- imageWHO: 'http://dummyimage.com/320x240/CCC/000.png&text=',
- imageO: 'http://dummyimage.com/180x90/FAD089/333.png&text=hello' }
-* */
-
 describe('image', function() {
 
   describe('image.image()', function() {
@@ -57,7 +45,41 @@ describe('image', function() {
 
   describe('imagePl()', function() {
     it('should be a dummyimage image url, size: 640x480', function() {
+      var img = result.imagePl;
+      should(img).be.a.String('should be a string');
+      img.should.match(/^http:\/\/dummyimage\.com\/640x480\/\w+\/\w+\.png&text=$/, 'dummyimage image, 640x480');
+    });
+  });
 
+  describe('imagePl(320, 240)', function() {
+    it('should be a dummyimage image url, size: 320x240', function() {
+      var img = result.imagePlWH;
+      should(img).be.a.String('should be a string');
+      img.should.match(/^http:\/\/dummyimage\.com\/320x240\/\w+\/\w+\.png&text=$/, 'dummyimage image, 320x240');
+    });
+  });
+
+  describe('imagePl(320, {format: "jpg"})', function() {
+    it('should be a dummyimage image url, size: 320x480', function() {
+      var img = result.imagePlWO;
+      should(img).be.a.String('should be a string');
+      img.should.match(/^http:\/\/dummyimage\.com\/320x480\/\w+\/\w+\.jpg&text=$/, 'dummyimage image, 320x480, jpg');
+    });
+  });
+
+  describe('imagePl(320, 240, {bgColor: ["FFF", "CCC"], fgColor: "000"})', function() {
+    it('should be a dummyimage image url, size: 320x480', function() {
+      var img = result.imagePlWHO;
+      should(img).be.a.String('should be a string');
+      img.should.match(/^http:\/\/dummyimage\.com\/320x240\/\w{3}\/000\.png&text=$/, 'dummyimage image, 320x240');
+    });
+  });
+
+  describe('imagePl({width: 180, height: 90, text: "hello"})', function() {
+    it('should be a dummyimage image url, size: 180x90', function() {
+      var img = result.imagePlO;
+      should(img).be.a.String('should be a string');
+      img.should.match(/^http:\/\/dummyimage\.com\/180x90\/\w+\/\w+\.png&text=hello$/, 'dummyimage image, 180x90, hello');
     });
   });
 
