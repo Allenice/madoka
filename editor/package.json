@@ -5,7 +5,7 @@
   "main": "js/app.js",
   "scripts": {
     "start": "watchify -o js/bundle.js -v -d js/app.js",
-    "build": "browserify . -t [envify --NODE_ENV production] | uglifyjs -cm > js/bundle.min.js"
+    "build": "browserify ./js/app.js | uglifyjs > js/bundle.min.js"
   },
   "author": "allenice <994298628@qq.com> (http://blog.allenice233.com/)",
   "license": "MIT",
