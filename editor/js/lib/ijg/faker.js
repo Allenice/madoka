@@ -208,7 +208,7 @@ module.exports = {
     o = _.extend({
       width: 640,
       height: 480,
-      bgColor: ['CCC', 'FAD089', 'FAD089', 'FAD089', 'ED303C', '3B8183'],
+      bgColor: ['CCC', 'FF9C5B', 'FAD089', 'FF9C5B', 'ED303C', '3B8183'],
       fgColor: ['333', 'FFF'],
       format: 'png',
       text: ''
