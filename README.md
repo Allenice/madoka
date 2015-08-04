@@ -2,13 +2,13 @@
 madoka 是一个生成 json 数据的工具。<br> 这里提供了一个在线编辑 json 的模板的编辑器。[editor](http://allenice.github.io/madoka/editor/) 
 
 ## 安装
-```
+```bash
 # under development
 # npm install madoka
 ```
 
 ## 运行测试
-```
+```bash
 // 请先安装 mocha
 sudo npm install mocha -g
 
@@ -178,7 +178,7 @@ faker.js 的 image 对象。
  - height: 图片高度，默认 480
  - options: 图片配置项
  
- ```
+ ```javascript
  // 默认配置
  {
 	    width: 640,
