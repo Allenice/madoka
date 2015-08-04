@@ -3,7 +3,8 @@ madoka 是一个生成 json 数据的工具。<br> 这里提供了一个在线�
 
 ## 安装
 ```
-npm install madoka
+# under development
+# npm install madoka
 ```
 
 ## 运行测试
