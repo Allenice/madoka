@@ -11,10 +11,10 @@ npm install madoka
 
 ## Run Test
 ```bash
-// install mocha first
+# install mocha first
 sudo npm install mocha -g
 
-// install dependence
+# install dependence
 npm install
 
 // run test
@@ -180,7 +180,7 @@ Returns a placeholder image link. visit [http://dummyimage.com](http://dummyimag
  - `height`:  Image height, default is 480.
  - `options`: Image options.
  
- ```
+ ```javascript
  // default options
  {
 	    width: 640,

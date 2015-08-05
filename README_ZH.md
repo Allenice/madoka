@@ -1,5 +1,5 @@
 # madoka [![Build Status](https://travis-ci.org/Allenice/madoka.png)](https://travis-ci.org/Allenice/madoka/)
-madoka 是一个生成 json 数据的工具。<br> 这里提供了一个在线编辑 json 的模板的编辑器。[editor](http://allenice.github.io/madoka/editor/)
+madoka 是一个生成 json 数据的工具。<br> 这里提供了一个在线编辑 json 的模板的编辑器。[editor](http://allenice.github.io/madoka/editor/) 
 
 ## 安装
 ```bash
@@ -8,10 +8,10 @@ npm install madoka
 
 ## 运行测试
 ```bash
-// 请先安装 mocha
+#请先安装 mocha
 sudo npm install mocha -g
 
-// 安装依赖包
+#安装依赖包
 npm install
 
 // 运行测试
@@ -69,12 +69,12 @@ console.timeEnd('build');
 生成 json 数据。
 
  - `template`: 数据模板
-
+ 
  ```javascript
  var template = '{{ firstName() }}';
- console.log( madoka.generate(template) );
+ console.log( madoka.generate(template) );   
  ```
-
+ 
 ### madoka.save(template, path)
 
 生成 json 数据并保存到指定路径。
@@ -94,19 +94,19 @@ console.timeEnd('build');
 #### **faker.integer(min, max, format)**
 
  从指定范围中返回一个随机整数，可以是负值。
-
+ 
  - `min`: 范围最小值
  - `max: 范围最大值
  - `format`: 格式化返回的数字，请参考：[http://adamwdraper.github.io/Numeral-js/](http://adamwdraper.github.io/Numeral-js/)
 
 #### **faker.floating(min, max, fixed, format)**
-
+ 
 从指定范围中返回一个随机浮点数，可以是负值。
 
 - `min`: 范围最小值
 - `max`: 范围最大值
 - `fixed`: 浮点数的精度
-- `format`: 格式化返回的数字，请参考：[http://adamwdraper.github.io/Numeral-js/](http://adamwdraper.github.io/Numeral-js/)
+- `format`: 格式化返回的数字，请参考：[http://adamwdraper.github.io/Numeral-js/](http://adamwdraper.github.io/Numeral-js/) 
 
 #### **faker.bool()**
 返回一个随机的布尔值
@@ -134,7 +134,7 @@ console.timeEnd('build');
 返回 fisrt name, 可以传入 gender 返回男或女名。
 
  - `gender`: male|female  性别
-
+ 
 #### **faker.surname()** | **faker.lastName()**
 返回一个姓。
 
@@ -176,19 +176,19 @@ faker.js 的 image 对象。
  - `width`: 图片宽度，默认 640
  - `height`: 图片高度，默认 480
  - `options`: 图片配置项
-
- ```
+ 
+ ```javascript
  // 默认配置
  {
 	    width: 640,
 	    height: 480,
-
+	    
 	    // array or string， 背景颜色
-	    bgColor: ['CCC', 'FF9C5B', 'FAD089', 'FF9C5B', 'ED303C', '3B8183'],
-
+	    bgColor: ['CCC', 'FF9C5B', 'FAD089', 'FF9C5B', 'ED303C', '3B8183'], 
+	    
 	     // array or string，文字颜色
 	    fgColor: ['333', 'FFF'],
-
+	    
 	    format: 'png',
 	    text: ''
  }
