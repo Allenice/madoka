@@ -4,7 +4,7 @@ var should = require('should'),
 var template = {
   floating: '{{ floating() }}',
   floating2: '{{ floating(-100.324, 100.555) }}',
-  floating3: '{{ floating(-100.3423, 100.3242, 2) }}',
+  floating3: '{{ floating(-100.324, 100.555, 2) }}',
   floating4: '{{ floating(-10000.3423, 10000.3242, null, "0,0.0") }}'
 };
 
