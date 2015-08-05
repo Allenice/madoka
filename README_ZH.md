@@ -1,27 +1,24 @@
 # madoka [![Build Status](https://travis-ci.org/Allenice/madoka.png)](https://travis-ci.org/Allenice/madoka/)
-madoka is a tool to generate json data.<br>There is provided an online editor to edit json template.[editor](http://allenice.github.io/madoka/editor/) 
+madoka 是一个生成 json 数据的工具。<br> 这里提供了一个在线编辑 json 的模板的编辑器。[editor](http://allenice.github.io/madoka/editor/)
 
-
-[中文文档](README_ZH.md)
-
-## Install
+## 安装
 ```bash
 npm install madoka
 ```
 
-## Run Test
+## 运行测试
 ```bash
-// install mocha first
+// 请先安装 mocha
 sudo npm install mocha -g
 
-// install dependence
+// 安装依赖包
 npm install
 
-// run test
+// 运行测试
 npm test
 ```
 
-## Usage
+## 使用
 ```javascript
 var path = require('path'),
   madoka = require('modoka');
@@ -69,77 +66,77 @@ console.timeEnd('build');
 ## Api
 
 ### madoka.generate(template)
-Generate json data.
+生成 json 数据。
 
- - `template`: data template
- 
+ - `template`: 数据模板
+
  ```javascript
  var template = '{{ firstName() }}';
- console.log( madoka.generate(template) );   
+ console.log( madoka.generate(template) );
  ```
- 
+
 ### madoka.save(template, path)
 
-Generate json data and save to specified path.
+生成 json 数据并保存到指定路径。
 
- - `template`:  data template
- - `path`: path to save file
+ - `template`:  数据模板
+ - `path`: 保存路径
 
 ### madoka.faker
-Generate fake data.
+生成模拟数据。
 
 #### **faker.faker**
-Instance of [faker.js](https://github.com/Marak/faker.js) , you can use all the methods faker.js provided.
+[faker.js](https://github.com/Marak/faker.js) 实例，可以使用全部 faker.js 提供的方法。
 
 #### **faker.random(arg1, arg2, arg3, ...)**
-returns random item from passed arguments list.
+从参数列表中随机返回一个值。
 
 #### **faker.integer(min, max, format)**
 
- Random integer in specified range. Can be negative.
- 
- - `min`: Minimum number in the range.
- - `max`: Maximum number in the range.
- - `format`: Number format. For more info visit [http://adamwdraper.github.io/Numeral-js/](http://adamwdraper.github.io/Numeral-js/)
+ 从指定范围中返回一个随机整数，可以是负值。
+
+ - `min`: 范围最小值
+ - `max: 范围最大值
+ - `format`: 格式化返回的数字，请参考：[http://adamwdraper.github.io/Numeral-js/](http://adamwdraper.github.io/Numeral-js/)
 
 #### **faker.floating(min, max, fixed, format)**
- 
-Random float in specified range.
 
-- `min`: Minimum number in the range.
-- `max`: Maximum number in the range.
-- `fixed`: Number of decimals
-- `format`: Number format. For more info visit [http://adamwdraper.github.io/Numeral-js/](http://adamwdraper.github.io/Numeral-js/) 
+从指定范围中返回一个随机浮点数，可以是负值。
+
+- `min`: 范围最小值
+- `max`: 范围最大值
+- `fixed`: 浮点数的精度
+- `format`: 格式化返回的数字，请参考：[http://adamwdraper.github.io/Numeral-js/](http://adamwdraper.github.io/Numeral-js/)
 
 #### **faker.bool()**
-Random boolean value.
+返回一个随机的布尔值
 
 #### **faker.guid()**
-Random globally unique identifier.
+返回一个唯一标记符
 
 #### **faker.objectId()**
-MongoDB's globally unique identifier for objects.
+返回一个 MongoDB 的 objectId。
 
 #### **faker.date(min, max, format)**
-Random date in specified range.
+从指定的日期范围中随机返回一个日期。不指定 format 的话，返回时间戳。
 
- - `min`: Minimum date in the range. Default is new Date(1970, 0, 1).
- - `max`: Maximum date in the range. Default is new Date().
- - `format`: Date format. For more info visit [http://github.com/hogart/datef](http://github.com/hogart/datef)
+ - `min`: 最小日期，默认值是 new Date(0), 也就是 1970-01-01
+ - `max`: 最大日期，默认值是 new Date()
+ - `format`: 格式化返回的日期，请参考：[http://github.com/hogart/datef](http://github.com/hogart/datef)
 
 #### **faker.lorem(count, units)**
-Random Lorem Ipsum text.
+随机返回文本
 
- - `count`: Number of generated units. Default is 1.
- - `units`: Units type. Can be words, sentences, or paragraphs. Default is sentences.
+ - `count`: 指定单位的数量，默认值是 1
+ - `units`: 文本单位，取值：words | sentences | paragraphs
 
 #### **faker.firstName(gender)**
-Random person name of both genders if no gender is specified.
+返回 fisrt name, 可以传入 gender 返回男或女名。
 
- - `gender`: male | female
- 
+ - `gender`: male|female  性别
+
 #### **faker.surname()** | **faker.lastName()**
-Return a last name.
+返回一个姓。
 
 #### **faker.company()**
 #### **faker.email()**
@@ -149,12 +146,12 @@ Return a last name.
 #### **faker.street()**
 
 #### **faker.phone(format)**
-Random phone number.
+返回电话号码
 
- - format:  Format string which contains # letters. Default is "###########".
+ - format:  使用"#"为占位符格式号码。 默认是 11 位格式的号码。
 
 #### **faker.image**
-faker.js  image object.
+faker.js 的 image 对象。
 
  - image()
  - imageUrl(width, height, category)
@@ -174,24 +171,24 @@ faker.js  image object.
  - transport(width, height)
 
 #### **faker.imagePl(width, height, options)**
-Returns a placeholder image link. visit [http://dummyimage.com](http://dummyimage.com).
+返回一个占位图片链接。查看 [http://dummyimage.com](http://dummyimage.com).
 
- - `width`:  Image width, default is 640.
- - `height`:  Image height, default is 480.
- - `options`: Image options.
- 
+ - `width`: 图片宽度，默认 640
+ - `height`: 图片高度，默认 480
+ - `options`: 图片配置项
+
  ```
- // default options
+ // 默认配置
  {
 	    width: 640,
 	    height: 480,
-	    
-	    // array or string， background color.
-	    bgColor: ['CCC', 'FF9C5B', 'FAD089', 'FF9C5B', 'ED303C', '3B8183'], 
-	    
-	     // array or string，text color
+
+	    // array or string， 背景颜色
+	    bgColor: ['CCC', 'FF9C5B', 'FAD089', 'FF9C5B', 'ED303C', '3B8183'],
+
+	     // array or string，文字颜色
 	    fgColor: ['333', 'FFF'],
-	    
+
 	    format: 'png',
 	    text: ''
  }
