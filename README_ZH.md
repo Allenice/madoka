@@ -11,17 +11,17 @@ npm install madoka
 #请先安装 mocha
 sudo npm install mocha -g
 
-#安装依赖包
+# 安装依赖包
 npm install
 
-// 运行测试
+# 运行测试
 npm test
 ```
 
 ## 使用
 ```javascript
 var path = require('path'),
-  madoka = require('modoka');
+	madoka = require('modoka');
 
 
 var template = [

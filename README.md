@@ -17,14 +17,14 @@ sudo npm install mocha -g
 # install dependence
 npm install
 
-// run test
+# run test
 npm test
 ```
 
 ## Usage
 ```javascript
 var path = require('path'),
-  madoka = require('modoka');
+    madoka = require('modoka');
 
 
 var template = [
