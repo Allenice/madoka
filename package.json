@@ -20,7 +20,9 @@
     "json",
     "generator",
     "faker",
-    "ohana"
+    "ohana",
+    "loadsh",
+    "numeral"
   ],
   "devDependencies": {
     "should": "^7.0.2"
