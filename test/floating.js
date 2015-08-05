@@ -36,9 +36,10 @@ describe('floating', function() {
     it('should be a float. >= -100.324 and <= 100.555 and with two decimal places', function() {
       var num = result.floating3,
           numStr = num + '';
-
+    
+      console.log(num, numStr);
       numStr.should.match(/^[-+]?\d*\.?\d+$/, 'float string');
-      numStr.should.match(/\d+.\d{2}/, 'two decimal places')
+      numStr.should.match(/^[-+]?\d*\.?\d{1,2}?$/, 'two decimal places')
       should.ok(num >= -100.324 && num <= 100.555, '>= -100.324 and <= 100.555');
     });
   });
