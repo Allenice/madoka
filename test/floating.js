@@ -5,7 +5,7 @@ var template = {
   floating: '{{ floating() }}',
   floating2: '{{ floating(-100.324, 100.555) }}',
   floating3: '{{ floating(-100.324, 100.555, 2) }}',
-  floating4: '{{ floating(-10000.3423, 10000.3242, null, "0,0.0") }}'
+  floating4: '{{ floating(-10000.3423, 10000.3242, null, "$0,0.0") }}'
 };
 
 var result = generator.generate(template);
@@ -36,7 +36,7 @@ describe('floating', function() {
     it('should be a float. >= -100.324 and <= 100.555 and with two decimal places', function() {
       var num = result.floating3,
           numStr = num + '';
-    
+
       console.log(num, numStr);
       numStr.should.match(/^[-+]?\d*\.?\d+$/, 'float string');
       numStr.should.match(/^[-+]?\d*\.?\d{1,2}?$/, 'two decimal places')
@@ -44,9 +44,9 @@ describe('floating', function() {
     });
   });
 
-  describe('floating(-10000.3423, 10000.3242, null, "0,0.0")', function() {
-    it('should be a string.  and with format "0,0.0"', function() {
-      result.floating4.should.match(/^[-+]?\d{0,3}(,\d{3})*(\.\d+)?$/, '0,0.0 format');
+  describe('floating(-10000.3423, 10000.3242, null, "$0,0.0")', function() {
+    it('should be a string.  and with format "$0,0.0"', function() {
+      result.floating4.should.match(/^[-+]?\$\d{0,3}(,\d{3})*(\.\d+)?$/, '$0,0.0 format');
     });
   });
 

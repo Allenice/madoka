@@ -5,7 +5,7 @@ var template = {
   integer_default: '{{ integer() }}',
   integer: '{{ integer(-100, 100) }}',
   integer_string: '{{ integer(-100, 100) }} str',
-  integer_format: '{{ integer(-10000, 100000, "0,0") }}'
+  integer_format: '{{ integer(-10000, 100000, "$0,0") }}'
 };
 
 var result = generator.generate(template);
@@ -41,10 +41,10 @@ describe('integer', function() {
     })
   });
 
-  describe('integer(-10000, 100000, "0,0")', function() {
-    it('should be a string with format "0,0"', function() {
+  describe('integer(-10000, 100000, "$0,0")', function() {
+    it('should be a string with format "$0,0"', function() {
       should(result.integer_format).be.a.String();
-      result.integer_format.should.match(/^[-+]?\d{0,3}(,\d{3})*$/, '0,0 format')
+      result.integer_format.should.match(/^[-+]?\$\d{0,3}(,\d{3})*$/, '$0,0 format')
     })
   });
 
