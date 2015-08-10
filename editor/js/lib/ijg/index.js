@@ -106,7 +106,7 @@ var parsers = {
 
   // parse array
   '_array': function(arr) {
-    var repeatReg = /{{\s*repeat\((\d+?),?\s*(\d*)?\)\s*}}/,
+    var repeatReg = /{{\s*repeat\((\d+),?\s*(\d*)?\)\s*}}/,
       resultArray = [];
 
     for(var i = 0; i < arr.length; i++) {
