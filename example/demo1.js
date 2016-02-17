@@ -5,7 +5,7 @@ var template = [
   '{{ repeat(4,6) }}',
   {
     _id: '{{ objectId() }}',
-    index: '{{ index() }}',
+    index: '{{ index() + 1 }}',
     guid: '{{ guid() }}',
     isActive: '{{ bool() }}',
     selfIntroduction: function(faker) {
@@ -16,7 +16,7 @@ var template = [
     picture: '{{ image.image() }}',
     age: '{{ integer(20, 40) }}',
     eyeColor: '{{ random("blue", "brown", "green") }}',
-    name: '{{ firstName() }} {{ lastName() }} {{ surname() }}',
+    name: '{{ firstName() + " " + lastName() + " " + surname() }}',
     compay: '{{ company().toUpperCase() }}',
     phone: '{{ phone() }}',
     address: '{{ state() }}, {{ city() }}, {{ street() }}, {{ faker.address.zipCode() }}',
@@ -25,11 +25,12 @@ var template = [
       '{{ repeat(7) }}',
       '{{ lorem(1, "words") }}'
     ],
-    greeting: function(faker) {
-      return 'Hello, ' + this.name + ' You have ' + faker.integer(10, 100) + ' unread message';
+    greeting: function(faker, index) {
+      return 'Hello, ' + this.name + ' You have ' + faker.integer(10, 100) + ' unread message' + index;
     }
   }
 ];
+
 
 console.time('build');
 console.log(generator.generate(template));

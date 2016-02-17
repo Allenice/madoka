@@ -96,3 +96,5 @@ node_modules
 example/build
 
 report
+
+.sass-cache
