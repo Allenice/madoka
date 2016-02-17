@@ -25,7 +25,14 @@
 
 
 var faker = require('./faker'),
-  _ = require('lodash');
+    fakerFuncNames = Object.keys(faker),
+    fakerFuncs = [],
+    _ = require('lodash'),
+    mkdirp = require('mkdirp');
+
+fakerFuncNames.forEach(function(name) {
+  fakerFuncs.push(faker[name]);
+});
 
 // match {{  }}
 var interpolateReg = /{{([\s\S]+?)}}/g;
@@ -35,37 +42,21 @@ var parsers = {
 
   // parse string template, if the parent template is an array, it will pass the index value to the child template
   '_string': function(str, index) {
-    var matchCount = 0,
-      hasIndex = false;
-
     // replace {{ xxx }}
+    var obj = this
     str = str.replace(interpolateReg, function(match, interpolate) {
-
-      // record the match count
-      matchCount++;
-
       try {
-        var funcName = interpolate.trim().match(/\w*/)[0],
-          func;
+        /*jslint evil: true */
+        var funcNames = ['','index'].concat(fakerFuncNames).concat(['return ' + interpolate + ';']),
+        func = new (Function.prototype.bind.apply(Function, funcNames)),
+        funcs = [function(){return index}].concat(fakerFuncs);
 
-        if(funcName === 'index') {
-          hasIndex = true;
-          return index;
-        } else {
-          /*jslint evil: true */
-          func = new Function(funcName, 'return ' + interpolate + ';');
-          return func(faker[funcName]);
-        }
-
+        return func.apply(obj, funcs);
+        
       } catch(e)  {
         return e.message;
       }
     });
-
-    // if str is only has one index() method, parse it to integer
-    if(matchCount === 1 && hasIndex) {
-      str = parseInt(str.trim());
-    }
 
     // if result is true or false, parse it to boolean
     if(/^(true|false)$/.test(str)) {
@@ -107,7 +98,7 @@ var parsers = {
   // parse array
   '_array': function(arr) {
     var repeatReg = /{{\s*repeat\((\d+),?\s*(\d*)?\)\s*}}/,
-      resultArray = [];
+        resultArray = [];
 
     for(var i = 0; i < arr.length; i++) {
       var item = arr[i];
@@ -115,9 +106,9 @@ var parsers = {
       // if item is string and has repeat method, repeat the next item to result array
       if(typeof  item === 'string' && repeatReg.test(item)) {
         var nextItem = arr[++i],
-          min = parseInt(RegExp.$1) || 0,
-          max = parseInt(RegExp.$2),
-          length;
+            min = parseInt(RegExp.$1) || 0,
+            max = parseInt(RegExp.$2),
+            length;
 
         length = isNaN(max) ? min : _.random(min, max);
 
@@ -137,8 +128,8 @@ var parsers = {
   },
 
   // parse function
-  '_function': function(func) {
-    return func.call(this, faker);
+  '_function': function(func, index) {
+    return func.call(this, faker, index);
   },
 
   // get parser according to the data type
@@ -159,7 +150,7 @@ var parsers = {
 function generate(template, index) {
 
   var data,
-    parser = parsers.getParser(template);
+      parser = parsers.getParser(template);
 
   if(typeof parser === 'function') {
     data = parser.call(this, template, index);
