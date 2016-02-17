@@ -31,7 +31,7 @@ var template = [
   '{{ repeat(5,7) }}',
   {
     _id: '{{ objectId() }}',
-    index: '{{ index() }}',
+    index: '{{ index() + 1 }}',
     guid: '{{ guid() }}',
     isActive: '{{ bool() }}',
     selfIntroduction: function(faker) {
