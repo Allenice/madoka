@@ -24,7 +24,7 @@ npm test
 ## Usage
 ```javascript
 var path = require('path'),
-    madoka = require('modoka');
+    madoka = require('madoka');
 
 
 var template = [
